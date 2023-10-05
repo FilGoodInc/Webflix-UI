@@ -9,13 +9,17 @@ namespace Webflix
 
         private void button1_Click(object sender, EventArgs e)
         {
-            connextion
-            openForm
+            
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
     public class Acteurs
     {
-        string Nom { get; set;}
+        string Nom { get; set; }
     }
 }

@@ -90,6 +90,7 @@
             Controls.Add(TB_Email);
             Name = "Login";
             Text = "Form1";
+            Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();
         }
