@@ -9,10 +9,15 @@ namespace Webflix
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TB_Email_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -42,6 +42,7 @@
             TB_Email.PlaceholderText = "example@gmail.com";
             TB_Email.Size = new Size(211, 23);
             TB_Email.TabIndex = 0;
+            TB_Email.TextChanged += TB_Email_TextChanged;
             // 
             // textBox2
             // 
