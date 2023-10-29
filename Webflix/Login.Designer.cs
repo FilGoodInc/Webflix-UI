@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             TB_Email = new TextBox();
             TB_Password = new TextBox();
-            Login_BTN = new Button();
+            BTN_Login = new Button();
             LBL_Email = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
@@ -57,27 +57,29 @@
             TB_Password.Location = new Point(152, 182);
             TB_Password.MaximumSize = new Size(219, 23);
             TB_Password.Name = "TB_Password";
+            TB_Password.PasswordChar = '*';
             TB_Password.PlaceholderText = "*****";
             TB_Password.Size = new Size(219, 23);
             TB_Password.TabIndex = 1;
+            TB_Password.UseSystemPasswordChar = true;
             // 
-            // Login_BTN
+            // BTN_Login
             // 
-            Login_BTN.Anchor = AnchorStyles.Top;
-            Login_BTN.BackColor = Color.FromArgb(141, 153, 174);
-            Login_BTN.BackgroundImageLayout = ImageLayout.None;
-            Login_BTN.Cursor = Cursors.Hand;
-            Login_BTN.FlatAppearance.BorderColor = Color.FromArgb(43, 45, 66);
-            Login_BTN.FlatStyle = FlatStyle.Flat;
-            Login_BTN.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            Login_BTN.ForeColor = SystemColors.ControlLightLight;
-            Login_BTN.Location = new Point(12, 232);
-            Login_BTN.Name = "Login_BTN";
-            Login_BTN.Size = new Size(359, 45);
-            Login_BTN.TabIndex = 2;
-            Login_BTN.Text = "Connexion";
-            Login_BTN.UseVisualStyleBackColor = false;
-            Login_BTN.Click += Login_BTN_Click;
+            BTN_Login.Anchor = AnchorStyles.Top;
+            BTN_Login.BackColor = Color.FromArgb(141, 153, 174);
+            BTN_Login.BackgroundImageLayout = ImageLayout.None;
+            BTN_Login.Cursor = Cursors.Hand;
+            BTN_Login.FlatAppearance.BorderColor = Color.FromArgb(43, 45, 66);
+            BTN_Login.FlatStyle = FlatStyle.Flat;
+            BTN_Login.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BTN_Login.ForeColor = SystemColors.ControlLightLight;
+            BTN_Login.Location = new Point(12, 232);
+            BTN_Login.Name = "BTN_Login";
+            BTN_Login.Size = new Size(359, 45);
+            BTN_Login.TabIndex = 2;
+            BTN_Login.Text = "Connexion";
+            BTN_Login.UseVisualStyleBackColor = false;
+            BTN_Login.Click += Login_BTN_Click;
             // 
             // LBL_Email
             // 
@@ -115,12 +117,11 @@
             // Error_LBL
             // 
             Error_LBL.Anchor = AnchorStyles.Top;
-            Error_LBL.AutoSize = true;
             Error_LBL.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Error_LBL.ForeColor = Color.FromArgb(217, 4, 41);
-            Error_LBL.Location = new Point(161, 208);
+            Error_LBL.Location = new Point(12, 208);
             Error_LBL.Name = "Error_LBL";
-            Error_LBL.Size = new Size(55, 21);
+            Error_LBL.Size = new Size(359, 21);
             Error_LBL.TabIndex = 7;
             Error_LBL.Text = "{Error}";
             Error_LBL.TextAlign = ContentAlignment.TopCenter;
@@ -137,7 +138,7 @@
             Controls.Add(TB_Email);
             Controls.Add(LBL_Email);
             Controls.Add(pictureBox1);
-            Controls.Add(Login_BTN);
+            Controls.Add(BTN_Login);
             Controls.Add(TB_Password);
             Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
@@ -145,7 +146,7 @@
             Name = "Login";
             Text = "Webflix - Connexion";
             Load += Login_Load;
-            KeyPress += KeyPress_Enter;
+            KeyDown += Login_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -155,7 +156,7 @@
 
         private TextBox TB_Email;
         private TextBox TB_Password;
-        private Button Login_BTN;
+        private Button BTN_Login;
         private Label LBL_Email;
         private PictureBox pictureBox1;
         private Label label1;
