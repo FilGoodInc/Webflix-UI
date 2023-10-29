@@ -22,7 +22,7 @@ namespace Webflix
 
         private void Main_Load(object sender, EventArgs e)
         {
-            GetMovies(); //TODO: Filter movies in BD or in C# ?
+            GetMovies();
 
             //Bind data to DGV
             DGV_MovieList.DataSource = moviesDataTable;
@@ -31,6 +31,7 @@ namespace Webflix
         //Code executé quand la boite de recherche change (Attention ca refresh souvent)
         private void TB_Search_TextChanged(object sender, EventArgs e)
         {
+            //TODO: Filter movies in BD or in C# ?
             ((DataTable)DGV_MovieList.DataSource).DefaultView.RowFilter = $"[Film] LIKE '%{TB_Search.Text}%'";
         }
 
