@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webflix
+namespace Webflix.src.mappings
 {
     internal class Artiste
     {
@@ -23,12 +23,12 @@ namespace Webflix
             this.biographie = biographie;
 
         }
-        public string getNom() { return this.nom; }
-        public string getLieuNaissance() { return this.lieuNaissance; }
-        public DateTime getDateNaissance() { return this.dateNaissance; }
-        public string getPhoto() { return this.photo; }
-        public string getBiographie() { return this.biographie; }
+        public string getNom() { return nom; }
+        public string getLieuNaissance() { return lieuNaissance; }
+        public DateTime getDateNaissance() { return dateNaissance; }
+        public string getPhoto() { return photo; }
+        public string getBiographie() { return biographie; }
 
-        
+
     }
 }

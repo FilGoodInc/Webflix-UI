@@ -1,12 +1,12 @@
 ﻿using NHibernate.Engine;
 using System;
-using System.Collections; 
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webflix
+namespace Webflix.src.mappings
 {
     internal class Client : Utilisateur
     {
@@ -16,6 +16,6 @@ namespace Webflix
         {
             this.locations = locations;
         }
-        public List<Location> getLocations() { return this.locations; }
+        public List<Location> getLocations() { return locations; }
     }
 }

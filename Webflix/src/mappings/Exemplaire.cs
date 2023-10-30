@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webflix
+namespace Webflix.src.mappings
 {
     internal class Exemplaire
     {
@@ -17,7 +17,7 @@ namespace Webflix
             this.film = film;
         }
 
-        public int getcodeExemplaire() { return this.codeExemplaire; }
-        public Film getFilm() { return this.film; }
+        public int getcodeExemplaire() { return codeExemplaire; }
+        public Film getFilm() { return film; }
     }
 }

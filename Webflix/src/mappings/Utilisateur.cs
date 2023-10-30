@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webflix
+namespace Webflix.src.mappings
 {
     internal class Utilisateur
     {
@@ -21,11 +21,11 @@ namespace Webflix
             this.dateNaissance = dateNaissance;
             this.motDePasse = motDePasse;
         }
-        public string getNom() { return this.nom; }
-        public string getEmail() { return this.email; }
-        public string getNoTelephone() { return this.noTelephone; }
-        public DateTime getDateNaissance() { return this.dateNaissance; }
-        public string getMotDePasse() { return this.motDePasse; }
-        
+        public string getNom() { return nom; }
+        public string getEmail() { return email; }
+        public string getNoTelephone() { return noTelephone; }
+        public DateTime getDateNaissance() { return dateNaissance; }
+        public string getMotDePasse() { return motDePasse; }
+
     }
 }

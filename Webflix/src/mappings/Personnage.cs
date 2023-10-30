@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webflix
+namespace Webflix.src.mappings
 {
     internal class Personnage
     {
@@ -12,14 +12,15 @@ namespace Webflix
         private Acteur acteur;
         private Film film;
 
-        public Personnage(string nom, Acteur acteur, Film film) { 
+        public Personnage(string nom, Acteur acteur, Film film)
+        {
             this.nom = nom;
             this.acteur = acteur;
             this.film = film;
         }
-        
-        public string getNom() { return this.nom; }
-        public Acteur getActeur() { return this.acteur; }
-        public Film getFilm() { return this.film; }
+
+        public string getNom() { return nom; }
+        public Acteur getActeur() { return acteur; }
+        public Film getFilm() { return film; }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webflix
+namespace Webflix.src.mappings
 {
     internal class Acteur : Artiste
     {
@@ -18,7 +18,7 @@ namespace Webflix
             this.personnages = personnages;
             this.films = films;
         }
-        public List<Personnage> getPersonnages() { return this.personnages; }
-        public List<Film> getFilms() { return this.films; }
+        public List<Personnage> getPersonnages() { return personnages; }
+        public List<Film> getFilms() { return films; }
     }
 }

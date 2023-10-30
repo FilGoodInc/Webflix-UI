@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Webflix
+namespace Webflix.src.mappings
 {
     internal class Location
     {
@@ -20,10 +20,10 @@ namespace Webflix
             this.exemplaire = exemplaire;
             this.client = client;
         }
-        public DateTime getDateDebut() { return this.dateDebut; }
-        public DateTime getDateFin() { return this.dateFin; }
-        public Exemplaire getExemplaire() { return this.exemplaire; }
-        public Client getClient() { return this.client; }
+        public DateTime getDateDebut() { return dateDebut; }
+        public DateTime getDateFin() { return dateFin; }
+        public Exemplaire getExemplaire() { return exemplaire; }
+        public Client getClient() { return client; }
 
     }
 }
