@@ -11,18 +11,19 @@ namespace Webflix
     {
         private string titre;
         private string anneeSortie;
-        private ArrayList paysProduction;
+        private List<string> paysProduction;
         private string langue;
         private int duree;
-        private ArrayList genres;
-        private ArrayList scenaristes;
-        private string realisateur;
-        private ArrayList acteurs;
+        private List<Genre> genres;
+        private List<Scenariste> scenaristes;
+        private List<Realisateur> realisateur;
+        private List<Acteur> acteurs;
         private string resume;
-        private ArrayList bandesAnnonce;
-
-        public Film() {}
-        public Film(string titre, string anneeSortie, ArrayList paysProduction,string langue, int duree, ArrayList genres, ArrayList scenaristes, string realisateur, ArrayList acteurs, string resume, ArrayList bandesAnnonce) {
+        private List<string> bandesAnnonce;
+        private List<Personnage> personnages;
+        private List<Exemplaire> exemplaires; 
+        public Film(string titre, string anneeSortie, List<string> paysProduction,string langue, int duree, List<Genre> genres, List<Scenariste> scenaristes, List<Realisateur> realisateur, List<Acteur> acteurs, string resume, List<string> bandesAnnonce, List<Personnage> personnages, List<Exemplaire> exemplaires)
+        {
             this.titre = titre;
             this.anneeSortie = anneeSortie;
             this.paysProduction = paysProduction;
@@ -34,30 +35,35 @@ namespace Webflix
             this.acteurs = acteurs;
             this.resume = resume;
             this.bandesAnnonce = bandesAnnonce;
+            this.personnages = personnages;
+            this.exemplaires = exemplaires;
+
         }
 
         public string getTitre() { return this.titre; }
 
         public string getAnneeSortie(){ return this.anneeSortie; }
 
-        public ArrayList getPaysProduction() { return this.paysProduction; }
+        public List<string> getPaysProduction() { return this.paysProduction; }
 
         public string getLangue() { return this.langue; }
         
         public int getDenree() {  return this.duree; }
         
-        public ArrayList getGenres() { return  this.genres; }
+        public List<Genre> getGenres() { return  this.genres; }
         
-        public ArrayList getScenaristes() {  return this.scenaristes; }
+        public List<Scenariste> getScenaristes() {  return this.scenaristes; }
         
-        public string getRealisateur() {  return this.realisateur; }
+        public List<Realisateur> getRealisateur() {  return this.realisateur; }
         
-        public ArrayList getActeurs() {  return this.acteurs; }
+        public List<Acteur> getActeurs() {  return this.acteurs; }
         
         public string getResume() { return this.resume; }
         
-        public ArrayList getBandesAnnonce() {  return this.bandesAnnonce; }
-        
+        public List<string> getBandesAnnonce() {  return this.bandesAnnonce; }
+
+        public List<Personnage> getPersonnages() { return this.personnages; }
+        public List<Exemplaire> getExemplaires() { return this.exemplaires; }
 
     }
 }
