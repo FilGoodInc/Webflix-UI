@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct. 29, 2023, 10:38:57 p.m. by Hibernate Tools 4.3.6.Final -->
+<hibernate-mapping>
+    <class name="Cartecredit" table="CARTECREDIT" optimistic-lock="version">
+        <id name="numcarte" type="string">
+            <column name="NUMCARTE" length="16" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="client" class="Client" fetch="select">
+            <column name="FK_IDCLIENT" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="typecarte" type="string">
+            <column name="TYPECARTE" length="10" not-null="true" />
+        </property>
+        <property name="dateexpiration" type="date">
+            <column name="DATEEXPIRATION" length="7" not-null="true" />
+        </property>
+        <property name="cvv" type="big_integer">
+            <column name="CVV" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

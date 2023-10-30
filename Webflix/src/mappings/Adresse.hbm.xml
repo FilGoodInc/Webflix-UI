@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct. 29, 2023, 10:38:57 p.m. by Hibernate Tools 4.3.6.Final -->
+<hibernate-mapping>
+    <class name="Adresse" table="ADRESSE" optimistic-lock="version">
+        <id name="idadresse" type="big_integer">
+            <column name="IDADRESSE" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="utilisateur" class="Utilisateur" fetch="select">
+            <column name="FK_IDUTILISATEUR" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="ligneadresse" type="string">
+            <column name="LIGNEADRESSE" length="100" not-null="true" />
+        </property>
+        <property name="ville" type="string">
+            <column name="VILLE" length="90" not-null="true" />
+        </property>
+        <property name="province" type="string">
+            <column name="PROVINCE" length="30" not-null="true" />
+        </property>
+        <property name="codepostal" type="string">
+            <column name="CODEPOSTAL" length="6" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

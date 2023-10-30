@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct. 29, 2023, 10:38:57 p.m. by Hibernate Tools 4.3.6.Final -->
+<hibernate-mapping>
+    <class name="Forfaitclient" table="FORFAITCLIENT" optimistic-lock="version">
+        <composite-id name="id" class="ForfaitclientId">
+            <key-property name="nomclient" type="string">
+                <column name="NOMCLIENT" length="100" />
+            </key-property>
+            <key-property name="codeforfait" type="char">
+                <column name="CODEFORFAIT" length="1" />
+            </key-property>
+            <key-property name="nomforfait" type="string">
+                <column name="NOMFORFAIT" length="13" />
+            </key-property>
+            <key-property name="cout" type="big_integer">
+                <column name="COUT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="nblocationmax" type="big_integer">
+                <column name="NBLOCATIONMAX" precision="22" scale="0" />
+            </key-property>
+            <key-property name="dureemax" type="big_integer">
+                <column name="DUREEMAX" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
