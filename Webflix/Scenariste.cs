@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Webflix
 {
-    internal class Scenariste
+     public class Scenariste
     {
         private string nom;
         private List<Film> films;

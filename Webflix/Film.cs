@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Webflix
 {
-    internal class Film
+     public class Film
     {
         private string titre;
         private string anneeSortie;

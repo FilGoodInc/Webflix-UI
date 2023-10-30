@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Webflix
 {
-    internal class Client : Utilisateur
+     public class Client : Utilisateur
     {
 
         private List<Location> locations;

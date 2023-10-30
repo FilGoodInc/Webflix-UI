@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Webflix
 {
-    internal class Personnage
+     public class Personnage
     {
         private string nom;
         private Acteur acteur;

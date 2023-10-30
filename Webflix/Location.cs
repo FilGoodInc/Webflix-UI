@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Webflix
 {
-    internal class Location
+     public class Location
     {
         private DateTime dateDebut;
         private DateTime dateFin;

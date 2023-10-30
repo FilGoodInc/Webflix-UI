@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Webflix
 {
-    internal class Exemplaire
+     public class Exemplaire
     {
         private int codeExemplaire;
         private Film film;

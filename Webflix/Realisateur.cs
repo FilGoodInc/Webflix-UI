@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Webflix
 {
-    internal class Realisateur : Artiste 
+     public class Realisateur : Artiste 
     {
         private List<Film> films;
         public Realisateur(string nom, string lieuNaissance, DateTime dateNaissance, string photo, string biographie, List<Film> films) : base(nom, lieuNaissance, dateNaissance, photo, biographie)
