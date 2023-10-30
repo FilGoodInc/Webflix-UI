@@ -1,9 +1,4 @@
 ﻿using NHibernate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NHibernate.Cfg;
 
 namespace Webflix.src
@@ -20,7 +15,7 @@ namespace Webflix.src
                 if (_sessionFactory == null)
                 {
                     var configuration = new Configuration();
-                    configuration.Configure();
+                    configuration.Configure("./src/hibernate.cfg.xml");
                     _sessionFactory = configuration.BuildSessionFactory();
                 }
                 return _sessionFactory;

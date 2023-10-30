@@ -31,4 +31,10 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="src\hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

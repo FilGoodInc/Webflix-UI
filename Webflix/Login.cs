@@ -1,3 +1,7 @@
+using NHibernate;
+using Webflix.src;
+using Webflix.src.mappings;
+
 namespace Webflix
 {
     public partial class Login : Form
@@ -7,12 +11,16 @@ namespace Webflix
             InitializeComponent();
         }
 
+        public ISession session { get; set; }
+
         //Fonction exécuté quand la page ouvre
         private void Login_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LBL_Email;
 
             //TODO: Instancier la connexion BD et/ou frameworks (Hibernate)
+            session = NHibernateHelper.OpenSession();
+
         }
 
         //Quand le user appuye sur une touche du clavier
@@ -34,7 +42,10 @@ namespace Webflix
         //Requête qui lance la connexion
         private void Login_Request(string username, string password)
         {
-            //TODO: Connexion à la BD ici
+            using (ITransaction transaction = session.BeginTransaction())
+            {
+                var utilisateur = session.Get<Utilisateur>("email", username);
+            }
 
             if (TB_Password.Text == "temp") //TODO: Insérer condition si la connexion est un succès
             {

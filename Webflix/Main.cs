@@ -1,4 +1,6 @@
+using NHibernate;
 using System.Data;
+using Webflix.src;
 
 namespace Webflix
 {
