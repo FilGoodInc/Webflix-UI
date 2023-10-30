@@ -121,4 +121,7 @@
   <data name="FULL_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\FULL_LOGO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="POSTER_PLACEHOLDER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\POSTER_PLACEHOLDER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

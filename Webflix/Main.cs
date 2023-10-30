@@ -1,15 +1,4 @@
-﻿using NHibernate;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using NHibernate.Cfg;
-using Webflix.src;
 
 namespace Webflix
 {
@@ -26,17 +15,29 @@ namespace Webflix
 
         private void Main_Load(object sender, EventArgs e)
         {
+            //Default fields values:
+            DTP_AnneeDebut.Value = new DateTime(1900, 1, 1, 12, 0, 0);
+            DTP_AnneeFin.Value = DateTime.Now;
+
+
             GetMovies();
 
             //Bind data to DGV
             DGV_MovieList.DataSource = moviesDataTable;
         }
 
-        //Code executé quand la boite de recherche change (Attention ca refresh souvent)
-        private void TB_Search_TextChanged(object sender, EventArgs e)
+        private void BTN_Search_Click(object sender, EventArgs e)
         {
+            string[] titres = Serialize(TB_Titre.Text);
+            int anneeDebut = DTP_AnneeDebut.Value.Year;
+            int anneeFin = DTP_AnneeFin.Value.Year;
+            string[] pays = Serialize(TB_Pays.Text);
+            string[] languesOriginales = Serialize(TB_LangueOriginale.Text);
+            string[] genres = Serialize(TB_Genre.Text);
+            string[] realisateurs = Serialize(TB_Realisateur.Text);
+            string[] acteurs = Serialize(TB_Acteur.Text);
+
             //TODO: Filter movies in BD or in C# ?
-            ((DataTable)DGV_MovieList.DataSource).DefaultView.RowFilter = $"[Film] LIKE '%{TB_Search.Text}%'";
         }
 
         public void GetMovies()
@@ -62,6 +63,11 @@ namespace Webflix
             {
                 moviesDataTable.Rows.Add(row);
             }
+        }
+
+        private string[] Serialize(string text)
+        {
+            return text.Split(';');
         }
     }
 }

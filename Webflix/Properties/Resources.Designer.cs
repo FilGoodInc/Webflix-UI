@@ -69,5 +69,15 @@ namespace Webflix.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap POSTER_PLACEHOLDER {
+            get {
+                object obj = ResourceManager.GetObject("POSTER_PLACEHOLDER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
