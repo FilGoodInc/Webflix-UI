@@ -64,7 +64,7 @@
             pictureBox1.Image = Properties.Resources.FULL_LOGO;
             pictureBox1.Location = new Point(6, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(383, 147);
+            pictureBox1.Size = new Size(431, 147);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
@@ -73,9 +73,9 @@
             // 
             TB_Titre.AutoCompleteMode = AutoCompleteMode.Append;
             TB_Titre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Titre.Location = new Point(166, 38);
+            TB_Titre.Location = new Point(182, 38);
             TB_Titre.Name = "TB_Titre";
-            TB_Titre.Size = new Size(223, 29);
+            TB_Titre.Size = new Size(249, 29);
             TB_Titre.TabIndex = 1;
             // 
             // LBL_Search_Title
@@ -105,7 +105,7 @@
             DGV_MovieList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DGV_MovieList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_MovieList.GridColor = Color.FromArgb(141, 153, 174);
-            DGV_MovieList.Location = new Point(395, 0);
+            DGV_MovieList.Location = new Point(443, 0);
             DGV_MovieList.MultiSelect = false;
             DGV_MovieList.Name = "DGV_MovieList";
             DGV_MovieList.ReadOnly = true;
@@ -124,7 +124,7 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.White;
             DGV_MovieList.RowsDefaultCellStyle = dataGridViewCellStyle3;
             DGV_MovieList.RowTemplate.Height = 25;
-            DGV_MovieList.Size = new Size(618, 621);
+            DGV_MovieList.Size = new Size(543, 621);
             DGV_MovieList.TabIndex = 1;
             DGV_MovieList.TabStop = false;
             // 
@@ -152,7 +152,7 @@
             GB_Search.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             GB_Search.Location = new Point(0, 147);
             GB_Search.Name = "GB_Search";
-            GB_Search.Size = new Size(389, 468);
+            GB_Search.Size = new Size(437, 468);
             GB_Search.TabIndex = 0;
             GB_Search.TabStop = false;
             GB_Search.Text = "Recherche de Film";
@@ -162,11 +162,11 @@
             LBL_Error.Anchor = AnchorStyles.Top;
             LBL_Error.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             LBL_Error.ForeColor = Color.FromArgb(217, 4, 41);
-            LBL_Error.Location = new Point(18, 294);
+            LBL_Error.Location = new Point(12, 294);
             LBL_Error.Name = "LBL_Error";
-            LBL_Error.Size = new Size(359, 21);
+            LBL_Error.Size = new Size(419, 21);
             LBL_Error.TabIndex = 18;
-            LBL_Error.Text = "{Error}";
+            LBL_Error.Text = "Aucun film trouvé.";
             LBL_Error.TextAlign = ContentAlignment.TopCenter;
             LBL_Error.Visible = false;
             // 
@@ -180,9 +180,9 @@
             BTN_Search.FlatStyle = FlatStyle.Flat;
             BTN_Search.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             BTN_Search.ForeColor = SystemColors.ControlLightLight;
-            BTN_Search.Location = new Point(18, 318);
+            BTN_Search.Location = new Point(12, 318);
             BTN_Search.Name = "BTN_Search";
-            BTN_Search.Size = new Size(359, 45);
+            BTN_Search.Size = new Size(419, 45);
             BTN_Search.TabIndex = 16;
             BTN_Search.Text = "Rechercher";
             BTN_Search.UseVisualStyleBackColor = false;
@@ -211,25 +211,25 @@
             // TB_Acteur
             // 
             TB_Acteur.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Acteur.Location = new Point(166, 248);
+            TB_Acteur.Location = new Point(182, 248);
             TB_Acteur.Name = "TB_Acteur";
-            TB_Acteur.Size = new Size(223, 29);
+            TB_Acteur.Size = new Size(249, 29);
             TB_Acteur.TabIndex = 15;
             // 
             // TB_Realisateur
             // 
             TB_Realisateur.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Realisateur.Location = new Point(166, 213);
+            TB_Realisateur.Location = new Point(182, 213);
             TB_Realisateur.Name = "TB_Realisateur";
-            TB_Realisateur.Size = new Size(223, 29);
+            TB_Realisateur.Size = new Size(249, 29);
             TB_Realisateur.TabIndex = 13;
             // 
             // TB_Genre
             // 
             TB_Genre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Genre.Location = new Point(166, 178);
+            TB_Genre.Location = new Point(182, 178);
             TB_Genre.Name = "TB_Genre";
-            TB_Genre.Size = new Size(223, 29);
+            TB_Genre.Size = new Size(249, 29);
             TB_Genre.TabIndex = 11;
             // 
             // label5
@@ -255,9 +255,9 @@
             // TB_LangueOriginale
             // 
             TB_LangueOriginale.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_LangueOriginale.Location = new Point(166, 143);
+            TB_LangueOriginale.Location = new Point(182, 143);
             TB_LangueOriginale.Name = "TB_LangueOriginale";
-            TB_LangueOriginale.Size = new Size(223, 29);
+            TB_LangueOriginale.Size = new Size(249, 29);
             TB_LangueOriginale.TabIndex = 9;
             // 
             // label3
@@ -265,7 +265,7 @@
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Italic, GraphicsUnit.Point);
             label3.Location = new Point(6, 377);
             label3.Name = "label3";
-            label3.Size = new Size(377, 96);
+            label3.Size = new Size(425, 96);
             label3.TabIndex = 17;
             label3.Text = resources.GetString("label3.Text");
             // 
@@ -283,7 +283,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(247, 79);
+            label1.Location = new Point(263, 79);
             label1.Name = "label1";
             label1.Size = new Size(23, 21);
             label1.TabIndex = 4;
@@ -291,10 +291,10 @@
             // 
             // DTP_AnneeDebut
             // 
-            DTP_AnneeDebut.CustomFormat = "YYYY";
+            DTP_AnneeDebut.CustomFormat = "yyyy";
             DTP_AnneeDebut.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             DTP_AnneeDebut.Format = DateTimePickerFormat.Custom;
-            DTP_AnneeDebut.Location = new Point(166, 73);
+            DTP_AnneeDebut.Location = new Point(182, 73);
             DTP_AnneeDebut.Name = "DTP_AnneeDebut";
             DTP_AnneeDebut.ShowUpDown = true;
             DTP_AnneeDebut.Size = new Size(75, 29);
@@ -303,10 +303,10 @@
             // 
             // DTP_AnneeFin
             // 
-            DTP_AnneeFin.CustomFormat = "YYYY";
+            DTP_AnneeFin.CustomFormat = "yyyy";
             DTP_AnneeFin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             DTP_AnneeFin.Format = DateTimePickerFormat.Custom;
-            DTP_AnneeFin.Location = new Point(276, 73);
+            DTP_AnneeFin.Location = new Point(292, 73);
             DTP_AnneeFin.Name = "DTP_AnneeFin";
             DTP_AnneeFin.ShowUpDown = true;
             DTP_AnneeFin.Size = new Size(75, 29);
@@ -315,9 +315,9 @@
             // TB_Pays
             // 
             TB_Pays.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Pays.Location = new Point(166, 108);
+            TB_Pays.Location = new Point(182, 108);
             TB_Pays.Name = "TB_Pays";
-            TB_Pays.Size = new Size(223, 29);
+            TB_Pays.Size = new Size(249, 29);
             TB_Pays.TabIndex = 7;
             // 
             // LBL_Search_Date
@@ -326,21 +326,21 @@
             LBL_Search_Date.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             LBL_Search_Date.Location = new Point(18, 79);
             LBL_Search_Date.Name = "LBL_Search_Date";
-            LBL_Search_Date.Size = new Size(146, 21);
+            LBL_Search_Date.Size = new Size(158, 21);
             LBL_Search_Date.TabIndex = 2;
-            LBL_Search_Date.Text = "Date de sortie entre";
+            LBL_Search_Date.Text = "Année de sortie entre";
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(237, 242, 244);
-            ClientSize = new Size(1013, 621);
+            ClientSize = new Size(984, 621);
             Controls.Add(GB_Search);
             Controls.Add(DGV_MovieList);
             Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new Size(1029, 660);
+            MinimumSize = new Size(1000, 660);
             Name = "Main";
             Text = "Webflix";
             Load += Main_Load;

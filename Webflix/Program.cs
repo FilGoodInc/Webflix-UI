@@ -1,4 +1,4 @@
-namespace Webflix.src.mappings
+namespace Webflix
 {
     internal static class Program
     {

@@ -1,0 +1,112 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "DbWebflix",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Webflix",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "EQUIPE113.ACTEUR",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.ACTEURFILM",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.ADRESSE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.ARTISTE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.CARTECREDIT",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.CLIENT",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.EMPLOYE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.EXEMPLAIRE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.FILM",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.FORFAIT",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.GENRE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.GENREFILM",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.LOCATION",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.PERSONNAGE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.REALISATEUR",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.SCENARISTE",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.SCENARISTEFILM",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.UTILISATEUR",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "EQUIPE113.log660ora12c",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": true,
+   "UseNoDefaultConstructor": true,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

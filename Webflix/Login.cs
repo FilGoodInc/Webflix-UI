@@ -1,6 +1,4 @@
-using NHibernate;
-using Webflix.src;
-using Webflix.src.mappings;
+using Webflix.Models;
 
 namespace Webflix
 {
@@ -11,15 +9,12 @@ namespace Webflix
             InitializeComponent();
         }
 
-        public ISession session { get; set; }
-
         //Fonction exécuté quand la page ouvre
         private void Login_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LBL_Email;
 
             //TODO: Instancier la connexion BD et/ou frameworks (Hibernate)
-            session = NHibernateHelper.OpenSession();
 
         }
 
@@ -42,24 +37,29 @@ namespace Webflix
         //Requête qui lance la connexion
         private void Login_Request(string username, string password)
         {
-            using (ITransaction transaction = session.BeginTransaction())
+            UTILISATEUR? utilisateur;
+            using (var db = new DbWebflix())
             {
-                var utilisateur = session.Get<Utilisateur>("email", username);
+                utilisateur = db.UTILISATEUR.SingleOrDefault(u => u.ADRESSECOURRIEL == username);
             }
 
-            if (TB_Password.Text == "temp") //TODO: Insérer condition si la connexion est un succès
+            if (utilisateur == null)
+            {
+                Error_LBL.Visible = true;
+                Error_LBL.Text = "Utilisateur non trouvé";
+            }
+            else if (TB_Password.Text != utilisateur.MOTDEPASSE) //TODO: Insérer condition si la connexion est un succès
+            {
+                Error_LBL.Visible = true;
+                Error_LBL.Text = "Mot de passe incorrect";
+            }
+            else
             {
                 //Open Main window & close login
                 this.Hide();
                 Main main = new Main();
                 main.ShowDialog();
                 this.Close();
-            }
-            else
-            {
-                //Show error text
-                Error_LBL.Visible = true;
-                Error_LBL.Text = "Courriel ou Mot de passe incorrect";
             }
         }
 
