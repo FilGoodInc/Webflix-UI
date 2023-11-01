@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.Data;
 using System.Runtime.CompilerServices;
 using Webflix.Models;
@@ -8,7 +9,6 @@ namespace Webflix
 {
     public partial class Main : Form
     {
-        private DataTable moviesDataTable { get; set; }
         public Main()
         {
             InitializeComponent();
@@ -21,9 +21,6 @@ namespace Webflix
             DTP_AnneeFin.Value = DateTime.Now;
 
             InitializeMovies();
-
-            //Bind data to DGV
-            DGV_MovieList.DataSource = moviesDataTable;
         }
 
         //Movies filtering when clicking on the search button
@@ -69,7 +66,7 @@ namespace Webflix
                 else LBL_Error.Visible = false;
 
                 //Update DGV
-                RefreshMovies(filteredMovies.Select(f => f.TITRE + " (" + f.ANNEE + ")").ToList());
+                DGV_MovieList.DataSource = filteredMovies.Select(f => new FilmDGV(f.IDFILM, f.TITRE + " (" + f.ANNEE + ")")).ToList();
             }
         }
 
@@ -77,24 +74,9 @@ namespace Webflix
         private void InitializeMovies()
         {
             //Fetch all movies from DB.
-            moviesDataTable = new DataTable();
-
-            List<string> movies;
             using (var db = new DbWebflix())
             {
-                movies = db.FILM.Select(f => f.TITRE + " (" + f.ANNEE + ")").ToList();
-            }
-            moviesDataTable.Columns.Add("Nom du Film (Année)");
-            RefreshMovies(movies);
-        }
-
-        //Refresh DGV with a list of movies
-        private void RefreshMovies(List<string> movies)
-        {
-            moviesDataTable.Clear();
-            foreach (string movie in movies)
-            {
-                moviesDataTable.Rows.Add(movie);
+                DGV_MovieList.DataSource = db.FILM.Select(f => new FilmDGV(f.IDFILM, f.TITRE + " (" + f.ANNEE + ")")).ToList();
             }
         }
 
@@ -102,7 +84,7 @@ namespace Webflix
         private List<string> Serialize(string text)
         {
             if (text == null || text == "") return new List<string>();
-            return text.Split(';').ToList();
+            return text.Split(';').Select(p => p.Trim()).ToList();
         }
 
         //Generate the SQL query for a filter
@@ -120,6 +102,31 @@ namespace Webflix
                 query += ")";
             }
             return query;
+        }
+
+        private void DGV_MovieList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var selectedRow = DGV_MovieList.SelectedRows[0];
+            var filmDGV = (FilmDGV)selectedRow.DataBoundItem;
+            var id = filmDGV.Id;
+            //Open Movie window
+            Movie main = new Movie(id);
+            main.ShowDialog();
+        }
+
+        public class FilmDGV
+        {
+            public FilmDGV(decimal id, string film)
+            {
+                Id = id;
+                Film = film;
+            }
+
+            [Browsable(false)]
+            public decimal Id { get; set; }
+
+            [DisplayName("Titre du Film (Année)")]
+            public string Film { get; set; }
         }
     }
 }

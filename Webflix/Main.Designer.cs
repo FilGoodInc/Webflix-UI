@@ -92,6 +92,8 @@
             // 
             DGV_MovieList.AllowUserToAddRows = false;
             DGV_MovieList.AllowUserToDeleteRows = false;
+            DGV_MovieList.AllowUserToResizeColumns = false;
+            DGV_MovieList.AllowUserToResizeRows = false;
             DGV_MovieList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DGV_MovieList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_MovieList.BackgroundColor = Color.FromArgb(141, 153, 174);
@@ -124,9 +126,11 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.White;
             DGV_MovieList.RowsDefaultCellStyle = dataGridViewCellStyle3;
             DGV_MovieList.RowTemplate.Height = 25;
-            DGV_MovieList.Size = new Size(543, 621);
+            DGV_MovieList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DGV_MovieList.Size = new Size(541, 621);
             DGV_MovieList.TabIndex = 1;
             DGV_MovieList.TabStop = false;
+            DGV_MovieList.CellDoubleClick += DGV_MovieList_CellDoubleClick;
             // 
             // GB_Search
             // 

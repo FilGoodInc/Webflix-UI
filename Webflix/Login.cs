@@ -31,7 +31,7 @@ namespace Webflix
         //Quand le user clic sur le bouton Connexion
         private void Login_BTN_Click(object sender, EventArgs e)
         {
-            this.Login_Request(this.TB_Email.Text, this.TB_Password.Text);
+            this.Login_Request(this.TB_Email.Text.Trim(), this.TB_Password.Text.Trim());
         }
 
         //Requête qui lance la connexion
