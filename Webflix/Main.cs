@@ -1,9 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Data;
-using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using Webflix.Models;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Webflix
 {
@@ -38,37 +37,37 @@ namespace Webflix
             var realisateurs = Serialize(TB_Realisateur.Text);
             var acteurs = Serialize(TB_Acteur.Text);
 
-            var query = @"SELECT FILM.IDFILM
-                            FROM FILM
-                            LEFT OUTER JOIN     ACTEURFILM      ON  FILM.IDFILM              = ACTEURFILM.FK_IDFILM 
-                            LEFT OUTER JOIN     ACTEUR          ON  ACTEURFILM.FK_IDACTEUR   = ACTEUR.IDARTISTE 
-                            LEFT OUTER JOIN     GENREFILM       ON  FILM.IDFILM              = GENREFILM.FK_IDFILM 
-                            LEFT OUTER JOIN     GENRE           ON  GENREFILM.FK_IDGENRE     = GENRE.IDGENRE 
-                            LEFT OUTER JOIN     REALISATEUR     ON  FILM.FK_IDREALISATEUR    = REALISATEUR.IDARTISTE 
-                            LEFT OUTER JOIN     ARTISTE AR      ON  REALISATEUR.IDARTISTE    = AR.IDARTISTE 
-                            LEFT OUTER JOIN     ARTISTE AA      ON  ACTEUR.IDARTISTE         = AA.IDARTISTE
-                            WHERE 1 = 1"; //The WHERE 1 = 1 is to avoid having to check if the next condition is the first one or not.
-
-            query += GetFilterQuery("FILM.TITRE", titres);                                  //Filter Titre
-            query += $"\nAND ((FILM.ANNEE >= {anneeDebut}) AND (FILM.ANNEE <= {anneeFin}))";//Filter Année
-            query += GetFilterQuery("FILM.PAYS", pays);                                     //Filter Pays
-            query += GetFilterQuery("FILM.LANGUEORIGINALE", languesOriginales);             //Filter Langue Originale
-            query += GetFilterQuery("GENRE.NOM", genres);                                   //Filter Genre
-            query += GetFilterQuery("AR.NOM", realisateurs);                                //Filter Réalisateur
-            query += GetFilterQuery("AA.NOM", acteurs);                                     //Filter Acteur
-
             using (var db = new DbWebflix())
             {
-                //Run filter query
-                var filteredMoviesIds = db.Database.SqlQueryRaw<decimal>(query).ToList();
-                var filteredMovies = db.FILM.Where(f => filteredMoviesIds.Contains(f.IDFILM)).ToList();
+                var test = $"^(?=.*[{Regex.Escape("kg")}]).*$";
 
-                //Display error if no movies found.
-                if (filteredMovies.Count == 0) LBL_Error.Text = "Aucun film trouvé.";
-                else LBL_Error.Visible = false;
+                var movies = (from film in db.FILM
+                                         join acteurFilm in db.ACTEURFILM on film.IDFILM equals acteurFilm.FK_IDFILM
+                                         join acteur in db.ACTEUR on acteurFilm.FK_IDACTEUR equals acteur.IDARTISTE
+                                         join genreFilm in db.GENREFILM on film.IDFILM equals genreFilm.FK_IDFILM
+                                         join genre in db.GENRE on genreFilm.FK_IDGENRE equals genre.IDGENRE
+                                         join realisateur in db.REALISATEUR on film.FK_IDREALISATEUR equals realisateur.IDARTISTE
+                                         join artisteRealisateur in db.ARTISTE on realisateur.IDARTISTE equals artisteRealisateur.IDARTISTE
+                                         join artisteActeur in db.ARTISTE on acteur.IDARTISTE equals artisteActeur.IDARTISTE
+                                         select new FilmDTO(film.IDFILM, film.TITRE, film.ANNEE, film.PAYS, film.LANGUEORIGINALE, genre.NOM, artisteRealisateur.NOM, artisteActeur.NOM))
+                                        .ToList();
+
+
+                var filteredMovies = movies.
+                    Where(f =>
+                            (titres.Count == 0 || titres.Any(t => t.All(f.Titre.ToLower().Contains))) &&
+                            (f.Annee >= anneeDebut && f.Annee <= anneeFin) &&
+                            (pays.Count == 0 || pays.Any(p => f.Pays.ToLower().Contains(p))) &&
+                            (languesOriginales.Count == 0 || languesOriginales.Any(p => f.LangueOriginale.ToLower().Contains(p))) &&
+                            (genres.Count == 0 || genres.Any(g => f.Genre.ToLower().Contains(g))) &&
+                            (realisateurs.Count == 0 || realisateurs.Any(r => r.All(f.Realisateur.ToLower().Contains))) &&
+                            (acteurs.Count == 0 || acteurs.Any(a => a.All(f.Acteur.ToLower().Contains))))
+                    .GroupBy(f => f.IdFilm)
+                    .Select(f => new FilmDGV(f.First().IdFilm, f.First().Titre + " (" + f.First().Annee + ")"))
+                    .ToList();
 
                 //Update DGV
-                DGV_MovieList.DataSource = filteredMovies.Select(f => new FilmDGV(f.IDFILM, f.TITRE + " (" + f.ANNEE + ")")).ToList();
+                DGV_MovieList.DataSource = filteredMovies;
             }
         }
 
@@ -86,7 +85,7 @@ namespace Webflix
         private List<string> Serialize(string text)
         {
             if (text == null || text == "") return new List<string>();
-            return text.Split(';').Select(p => p.Trim()).ToList();
+            return text.Split(';').Select(p => p.Trim().ToLower()).ToList();
         }
 
         //Generate the SQL query for a filter
@@ -130,6 +129,30 @@ namespace Webflix
 
             [DisplayName("Titre du Film (Année)")]
             public string Film { get; set; }
+        }
+
+        public class FilmDTO
+        {
+            public FilmDTO(decimal idFilm, string titre, decimal annee,string pays, string langueOriginale, string genre, string realisateur, string acteur)
+            {
+                IdFilm = idFilm;
+                Titre = titre;
+                Annee = annee;
+                Pays = pays;
+                LangueOriginale = langueOriginale;
+                Genre = genre;
+                Realisateur = realisateur;
+                Acteur = acteur;
+            }
+
+            public decimal IdFilm { get; }
+            public string Titre { get; }
+            public decimal Annee { get; }
+            public string Pays { get; }
+            public string LangueOriginale { get; }
+            public string Genre { get; }
+            public string Realisateur { get; }
+            public string Acteur { get; }
         }
     }
 }
