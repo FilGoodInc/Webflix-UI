@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Oracle.ManagedDataAccess.Client;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -9,10 +10,12 @@ namespace Webflix
     public partial class Movie : Form
     {
         decimal IDFILM;
-        public Movie(decimal IDFILM)
+        decimal IDCLIENT;
+        public Movie(decimal IDFILM, decimal IDCLIENT)
         {
             InitializeComponent();
             this.IDFILM = IDFILM;
+            this.IDCLIENT = IDCLIENT;
         }
 
         private void Movie_Load(object sender, EventArgs e)
@@ -82,14 +85,19 @@ namespace Webflix
         {
             if (MessageBox.Show("Voulez-vous louer ce film ?", "Louer", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                string result = "";
                 using (var db = new DbWebflix())
                 {
-                    //db.Database.SqlQuery<YourEntityType>("p_locationFilm @p_idClient, @p_idFilm, @p_dateDebut, @p_dateFin, @p_ligneAdresse, @p_ville, @p_province, @p_codePostal", new SqlParameter("@p_idClient", 1), new SqlParameter("@p_idFilm", 1), new SqlParameter("@p_dateDebut", DateTime.Now), new SqlParameter("@p_dateFin", DateTime.Now), new SqlParameter("@p_ligneAdresse", "test"), new SqlParameter("@p_ville", "test"), new SqlParameter("@p_province", "test"), new SqlParameter("@p_codePostal", "test")).ToList();
-                    //TODO: Procédure location film
-                }
+                    var idClientParam = new OracleParameter("p_idClient", OracleDbType.Int64, IDCLIENT, ParameterDirection.Input);
+                    var idFilmParam = new OracleParameter("p_idFilm", OracleDbType.Int64, IDFILM, ParameterDirection.Input);
+                    var resultParam = new OracleParameter("p_result", OracleDbType.Varchar2, ParameterDirection.Output);
+                    resultParam.Size = 100;
 
-                MessageBox.Show(result, "Location");
+                    var sql = "BEGIN P_LOCATIONFILM(:p_idClient,:p_idFilm,:p_result); END;";
+
+                    var rowsAffected = db.Database.ExecuteSqlRaw(sql, idClientParam, idFilmParam, resultParam);
+                    var result = resultParam.Value;
+                    MessageBox.Show(result.ToString(), "Location");
+                }
             }
         }
 

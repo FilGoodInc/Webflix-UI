@@ -57,7 +57,7 @@ namespace Webflix
             {
                 //Open Main window & close login
                 this.Hide();
-                Main main = new Main();
+                Main main = new Main(utilisateur.IDUTILISATEUR);
                 main.ShowDialog();
                 this.Close();
             }

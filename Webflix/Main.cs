@@ -9,9 +9,11 @@ namespace Webflix
 {
     public partial class Main : Form
     {
-        public Main()
+        decimal IDCLIENT;
+        public Main(decimal iDCLIENT)
         {
             InitializeComponent();
+            IDCLIENT = iDCLIENT;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -110,7 +112,7 @@ namespace Webflix
             var filmDGV = (FilmDGV)selectedRow.DataBoundItem;
             var id = filmDGV.Id;
             //Open Movie window
-            Movie movie = new Movie(id);
+            Movie movie = new Movie(id, IDCLIENT);
             movie.ShowDialog();
             movie.Dispose();
         }
