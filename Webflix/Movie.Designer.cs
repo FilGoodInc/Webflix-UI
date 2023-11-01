@@ -53,7 +53,7 @@
             label3 = new Label();
             DGV_BandesAnnonces = new DataGridView();
             BandesAnnonces = new DataGridViewLinkColumn();
-            BTN_Login = new Button();
+            BTN_Louer = new Button();
             ((System.ComponentModel.ISupportInitialize)PB_AfficheFilm).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGV_Acteurs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGV_BandesAnnonces).BeginInit();
@@ -85,10 +85,10 @@
             // TB_Realisateur
             // 
             TB_Realisateur.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Realisateur.Location = new Point(366, 44);
+            TB_Realisateur.Location = new Point(318, 44);
             TB_Realisateur.Name = "TB_Realisateur";
             TB_Realisateur.ReadOnly = true;
-            TB_Realisateur.Size = new Size(223, 29);
+            TB_Realisateur.Size = new Size(271, 29);
             TB_Realisateur.TabIndex = 28;
             // 
             // label5
@@ -113,6 +113,7 @@
             // 
             // TB_LangueOriginale
             // 
+            TB_LangueOriginale.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TB_LangueOriginale.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TB_LangueOriginale.Location = new Point(742, 79);
             TB_LangueOriginale.Name = "TB_LangueOriginale";
@@ -124,10 +125,10 @@
             // 
             TB_Titre.AutoCompleteMode = AutoCompleteMode.Append;
             TB_Titre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Titre.Location = new Point(366, 9);
+            TB_Titre.Location = new Point(318, 9);
             TB_Titre.Name = "TB_Titre";
             TB_Titre.ReadOnly = true;
-            TB_Titre.Size = new Size(223, 29);
+            TB_Titre.Size = new Size(271, 29);
             TB_Titre.TabIndex = 17;
             // 
             // LBL_Search_Title
@@ -152,6 +153,7 @@
             // 
             // TB_Annee
             // 
+            TB_Annee.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TB_Annee.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TB_Annee.Location = new Point(742, 6);
             TB_Annee.Name = "TB_Annee";
@@ -171,15 +173,17 @@
             // 
             // TB_Genre
             // 
+            TB_Genre.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TB_Genre.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Genre.Location = new Point(742, 149);
+            TB_Genre.Location = new Point(659, 149);
             TB_Genre.Name = "TB_Genre";
             TB_Genre.ReadOnly = true;
-            TB_Genre.Size = new Size(223, 29);
+            TB_Genre.Size = new Size(306, 29);
             TB_Genre.TabIndex = 26;
             // 
             // TB_Pays
             // 
+            TB_Pays.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TB_Pays.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TB_Pays.Location = new Point(742, 44);
             TB_Pays.Name = "TB_Pays";
@@ -213,9 +217,11 @@
             DGV_Acteurs.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV_Acteurs.Size = new Size(371, 198);
             DGV_Acteurs.TabIndex = 33;
+            DGV_Acteurs.CellDoubleClick += DGV_Acteurs_CellDoubleClick;
             // 
             // TB_Duree
             // 
+            TB_Duree.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TB_Duree.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TB_Duree.Location = new Point(742, 114);
             TB_Duree.Name = "TB_Duree";
@@ -246,14 +252,15 @@
             // TB_Scenariste
             // 
             TB_Scenariste.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TB_Scenariste.Location = new Point(366, 79);
+            TB_Scenariste.Location = new Point(318, 79);
             TB_Scenariste.Name = "TB_Scenariste";
             TB_Scenariste.ReadOnly = true;
-            TB_Scenariste.Size = new Size(223, 29);
+            TB_Scenariste.Size = new Size(271, 29);
             TB_Scenariste.TabIndex = 37;
             // 
             // RTB_Resume
             // 
+            RTB_Resume.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             RTB_Resume.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RTB_Resume.Location = new Point(84, 318);
             RTB_Resume.Name = "RTB_Resume";
@@ -266,7 +273,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(12, 315);
+            label3.Location = new Point(12, 321);
             label3.Name = "label3";
             label3.Size = new Size(66, 21);
             label3.TabIndex = 39;
@@ -277,6 +284,7 @@
             DGV_BandesAnnonces.AllowUserToAddRows = false;
             DGV_BandesAnnonces.AllowUserToDeleteRows = false;
             DGV_BandesAnnonces.AllowUserToResizeRows = false;
+            DGV_BandesAnnonces.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             DGV_BandesAnnonces.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DGV_BandesAnnonces.BackgroundColor = Color.FromArgb(141, 153, 174);
             DGV_BandesAnnonces.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -306,22 +314,23 @@
             BandesAnnonces.Resizable = DataGridViewTriState.True;
             BandesAnnonces.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
-            // BTN_Login
+            // BTN_Louer
             // 
-            BTN_Login.Anchor = AnchorStyles.Top;
-            BTN_Login.BackColor = Color.FromArgb(239, 35, 60);
-            BTN_Login.BackgroundImageLayout = ImageLayout.None;
-            BTN_Login.Cursor = Cursors.Hand;
-            BTN_Login.FlatAppearance.BorderColor = Color.FromArgb(43, 45, 66);
-            BTN_Login.FlatStyle = FlatStyle.Flat;
-            BTN_Login.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            BTN_Login.ForeColor = SystemColors.ControlLightLight;
-            BTN_Login.Location = new Point(770, 318);
-            BTN_Login.Name = "BTN_Login";
-            BTN_Login.Size = new Size(191, 87);
-            BTN_Login.TabIndex = 41;
-            BTN_Login.Text = "Louer le Film";
-            BTN_Login.UseVisualStyleBackColor = false;
+            BTN_Louer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BTN_Louer.BackColor = Color.FromArgb(239, 35, 60);
+            BTN_Louer.BackgroundImageLayout = ImageLayout.None;
+            BTN_Louer.Cursor = Cursors.Hand;
+            BTN_Louer.FlatAppearance.BorderColor = Color.FromArgb(43, 45, 66);
+            BTN_Louer.FlatStyle = FlatStyle.Flat;
+            BTN_Louer.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BTN_Louer.ForeColor = SystemColors.ControlLightLight;
+            BTN_Louer.Location = new Point(770, 318);
+            BTN_Louer.Name = "BTN_Louer";
+            BTN_Louer.Size = new Size(191, 90);
+            BTN_Louer.TabIndex = 41;
+            BTN_Louer.Text = "Louer le Film";
+            BTN_Louer.UseVisualStyleBackColor = false;
+            BTN_Louer.Click += BTN_Louer_Click;
             // 
             // Movie
             // 
@@ -329,7 +338,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(237, 242, 244);
             ClientSize = new Size(973, 417);
-            Controls.Add(BTN_Login);
+            Controls.Add(BTN_Louer);
             Controls.Add(DGV_BandesAnnonces);
             Controls.Add(label3);
             Controls.Add(RTB_Resume);
@@ -387,6 +396,6 @@
         private Label label7;
         private DataGridView DGV_BandesAnnonces;
         private DataGridViewLinkColumn BandesAnnonces;
-        private Button BTN_Login;
+        private Button BTN_Louer;
     }
 }

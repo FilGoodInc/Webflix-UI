@@ -110,8 +110,9 @@ namespace Webflix
             var filmDGV = (FilmDGV)selectedRow.DataBoundItem;
             var id = filmDGV.Id;
             //Open Movie window
-            Movie main = new Movie(id);
-            main.ShowDialog();
+            Movie movie = new Movie(id);
+            movie.ShowDialog();
+            movie.Dispose();
         }
 
         public class FilmDGV

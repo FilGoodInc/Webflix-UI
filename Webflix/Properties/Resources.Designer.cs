@@ -63,6 +63,16 @@ namespace Webflix.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ACTOR_PLACEHOLDER {
+            get {
+                object obj = ResourceManager.GetObject("ACTOR_PLACEHOLDER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FULL_LOGO {
             get {
                 object obj = ResourceManager.GetObject("FULL_LOGO", resourceCulture);
