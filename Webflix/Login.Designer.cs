@@ -49,6 +49,7 @@
             TB_Email.PlaceholderText = "exemple@gmail.com";
             TB_Email.Size = new Size(219, 23);
             TB_Email.TabIndex = 0;
+            TB_Email.Text = "RobertJClark66@hotmail.com";
             // 
             // TB_Password
             // 
@@ -61,6 +62,7 @@
             TB_Password.PlaceholderText = "*****";
             TB_Password.Size = new Size(219, 23);
             TB_Password.TabIndex = 1;
+            TB_Password.Text = "xesoThei3";
             TB_Password.UseSystemPasswordChar = true;
             // 
             // BTN_Login

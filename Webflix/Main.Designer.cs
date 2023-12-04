@@ -54,6 +54,7 @@
             DTP_AnneeFin = new DateTimePicker();
             TB_Pays = new TextBox();
             LBL_Search_Date = new Label();
+            BTN_Rent = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGV_MovieList).BeginInit();
             GB_Search.SuspendLayout();
@@ -127,7 +128,7 @@
             DGV_MovieList.RowsDefaultCellStyle = dataGridViewCellStyle3;
             DGV_MovieList.RowTemplate.Height = 25;
             DGV_MovieList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV_MovieList.Size = new Size(541, 621);
+            DGV_MovieList.Size = new Size(541, 678);
             DGV_MovieList.TabIndex = 1;
             DGV_MovieList.TabStop = false;
             DGV_MovieList.CellDoubleClick += DGV_MovieList_CellDoubleClick;
@@ -334,12 +335,31 @@
             LBL_Search_Date.TabIndex = 2;
             LBL_Search_Date.Text = "Année de sortie entre";
             // 
+            // BTN_Rent
+            // 
+            BTN_Rent.Anchor = AnchorStyles.Top;
+            BTN_Rent.BackColor = Color.FromArgb(141, 153, 174);
+            BTN_Rent.BackgroundImageLayout = ImageLayout.None;
+            BTN_Rent.Cursor = Cursors.Hand;
+            BTN_Rent.FlatAppearance.BorderColor = Color.FromArgb(43, 45, 66);
+            BTN_Rent.FlatStyle = FlatStyle.Flat;
+            BTN_Rent.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BTN_Rent.ForeColor = SystemColors.ControlLightLight;
+            BTN_Rent.Location = new Point(12, 621);
+            BTN_Rent.Name = "BTN_Rent";
+            BTN_Rent.Size = new Size(419, 45);
+            BTN_Rent.TabIndex = 19;
+            BTN_Rent.Text = "Historique des locations";
+            BTN_Rent.UseVisualStyleBackColor = false;
+            BTN_Rent.Click += BTN_Rent_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(237, 242, 244);
-            ClientSize = new Size(984, 621);
+            ClientSize = new Size(984, 678);
+            Controls.Add(BTN_Rent);
             Controls.Add(GB_Search);
             Controls.Add(DGV_MovieList);
             Controls.Add(pictureBox1);
@@ -379,5 +399,6 @@
         private TextBox TB_LangueOriginale;
         private Button BTN_Search;
         private Label LBL_Error;
+        private Button BTN_Rent;
     }
 }

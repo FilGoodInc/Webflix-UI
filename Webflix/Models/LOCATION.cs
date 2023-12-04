@@ -11,7 +11,7 @@ public partial class LOCATION
 
     public DateTime DATEDEBUT { get; set; }
 
-    public DateTime DATEFIN { get; set; }
+    public DateTime? DATEFIN { get; set; }
 
     public decimal FK_IDCLIENT { get; set; }
 

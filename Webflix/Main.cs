@@ -42,14 +42,14 @@ namespace Webflix
                 var test = $"^(?=.*[{Regex.Escape("kg")}]).*$";
 
                 var movies = (from film in db.FILM
-                                         join acteurFilm in db.ACTEURFILM on film.IDFILM equals acteurFilm.FK_IDFILM
-                                         join acteur in db.ACTEUR on acteurFilm.FK_IDACTEUR equals acteur.IDARTISTE
-                                         join genreFilm in db.GENREFILM on film.IDFILM equals genreFilm.FK_IDFILM
-                                         join genre in db.GENRE on genreFilm.FK_IDGENRE equals genre.IDGENRE
-                                         join realisateur in db.REALISATEUR on film.FK_IDREALISATEUR equals realisateur.IDARTISTE
-                                         join artisteRealisateur in db.ARTISTE on realisateur.IDARTISTE equals artisteRealisateur.IDARTISTE
-                                         join artisteActeur in db.ARTISTE on acteur.IDARTISTE equals artisteActeur.IDARTISTE
-                                         select new FilmDTO(film.IDFILM, film.TITRE, film.ANNEE, film.PAYS, film.LANGUEORIGINALE, genre.NOM, artisteRealisateur.NOM, artisteActeur.NOM))
+                              join acteurFilm in db.ACTEURFILM on film.IDFILM equals acteurFilm.FK_IDFILM
+                              join acteur in db.ACTEUR on acteurFilm.FK_IDACTEUR equals acteur.IDARTISTE
+                              join genreFilm in db.GENREFILM on film.IDFILM equals genreFilm.FK_IDFILM
+                              join genre in db.GENRE on genreFilm.FK_IDGENRE equals genre.IDGENRE
+                              join realisateur in db.REALISATEUR on film.FK_IDREALISATEUR equals realisateur.IDARTISTE
+                              join artisteRealisateur in db.ARTISTE on realisateur.IDARTISTE equals artisteRealisateur.IDARTISTE
+                              join artisteActeur in db.ARTISTE on acteur.IDARTISTE equals artisteActeur.IDARTISTE
+                              select new FilmDTO(film.IDFILM, film.TITRE, film.ANNEE, film.PAYS, film.LANGUEORIGINALE, genre.NOM, artisteRealisateur.NOM, artisteActeur.NOM))
                                         .ToList();
 
 
@@ -133,7 +133,7 @@ namespace Webflix
 
         public class FilmDTO
         {
-            public FilmDTO(decimal idFilm, string titre, decimal annee,string pays, string langueOriginale, string genre, string realisateur, string acteur)
+            public FilmDTO(decimal idFilm, string titre, decimal annee, string pays, string langueOriginale, string genre, string realisateur, string acteur)
             {
                 IdFilm = idFilm;
                 Titre = titre;
@@ -153,6 +153,14 @@ namespace Webflix
             public string Genre { get; }
             public string Realisateur { get; }
             public string Acteur { get; }
+        }
+
+        private void BTN_Rent_Click(object sender, EventArgs e)
+        {
+            //Open Rents window
+            Rents rents = new Rents();
+            rents.ShowDialog();
+            rents.Dispose();
         }
     }
 }
