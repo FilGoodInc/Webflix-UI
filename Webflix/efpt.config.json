@@ -102,6 +102,10 @@
       {
          "Name": "EQUIPE113.UTILISATEUR",
          "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.VUE_MAT_MOYENNE_COTE",
+         "ObjectType": 3
       }
    ],
    "UiHint": "LOG660",

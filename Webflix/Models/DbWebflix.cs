@@ -52,6 +52,8 @@ public partial class DbWebflix : DbContext
 
     public virtual DbSet<UTILISATEUR> UTILISATEUR { get; set; }
 
+    public virtual DbSet<VUE_MAT_MOYENNE_COTE> VUE_MAT_MOYENNE_COTE { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseOracle("DATA SOURCE=log660ora12c.logti.etsmtl.ca:1521/log660ora12c.logti.etsmtl.ca;PASSWORD=HCYrEv9a;USER ID=EQUIPE113");
 
@@ -515,6 +517,16 @@ public partial class DbWebflix : DbContext
                 .IsRequired()
                 .HasMaxLength(15)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<VUE_MAT_MOYENNE_COTE>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("VUE_MAT_MOYENNE_COTE");
+
+            entity.Property(e => e.AVG_COTE).HasColumnType("NUMBER");
+            entity.Property(e => e.IDFILM).HasColumnType("NUMBER(38)");
         });
         modelBuilder.HasSequence("ADRESSE_SEQUENCE");
         modelBuilder.HasSequence("LOCATION_SEQUENCE");

@@ -55,6 +55,10 @@ namespace Webflix
                 DGV_Acteurs.DataSource = personnages;
                 RTB_Resume.Text = film.RESUME ?? "";
                 AddBandesAnnoncesToDGV(film.LIENSBANDEANNONCE ?? "");
+
+
+                //Cote moyenne
+                TB_Cote.Text = db.VUE_MAT_MOYENNE_COTE.Single(v => v.IDFILM == IDFILM).AVG_COTE.ToString();
             }
         }
 
