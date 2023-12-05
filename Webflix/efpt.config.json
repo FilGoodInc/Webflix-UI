@@ -104,6 +104,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "EQUIPE113.VUE_MAT_CORRELATION",
+         "ObjectType": 3
+      },
+      {
          "Name": "EQUIPE113.VUE_MAT_MOYENNE_COTE",
          "ObjectType": 3
       }
@@ -114,6 +118,7 @@
    "UseDatabaseNames": true,
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseHierarchyId": false,

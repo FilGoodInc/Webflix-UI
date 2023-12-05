@@ -52,6 +52,8 @@ public partial class DbWebflix : DbContext
 
     public virtual DbSet<UTILISATEUR> UTILISATEUR { get; set; }
 
+    public virtual DbSet<VUE_MAT_CORRELATION> VUE_MAT_CORRELATION { get; set; }
+
     public virtual DbSet<VUE_MAT_MOYENNE_COTE> VUE_MAT_MOYENNE_COTE { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -517,6 +519,17 @@ public partial class DbWebflix : DbContext
                 .IsRequired()
                 .HasMaxLength(15)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<VUE_MAT_CORRELATION>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("VUE_MAT_CORRELATION");
+
+            entity.Property(e => e.CORRELATION).HasColumnType("NUMBER");
+            entity.Property(e => e.FILMID1).HasColumnType("NUMBER(38)");
+            entity.Property(e => e.FILMID2).HasColumnType("NUMBER(38)");
         });
 
         modelBuilder.Entity<VUE_MAT_MOYENNE_COTE>(entity =>
