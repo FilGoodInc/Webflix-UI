@@ -11,6 +11,8 @@ public partial class EXEMPLAIRE
 
     public decimal FK_IDFILM { get; set; }
 
+    public string LOUE { get; set; }
+
     public virtual FILM FK_IDFILMNavigation { get; set; }
 
     public virtual ICollection<LOCATION> LOCATION { get; set; } = new List<LOCATION>();

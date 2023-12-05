@@ -44,6 +44,22 @@
          "ObjectType": 0
       },
       {
+         "Name": "EQUIPE113.ETL_CLIENT",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.ETL_FILM",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.ETL_LOCATION",
+         "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.ETL_TEMPS",
+         "ObjectType": 0
+      },
+      {
          "Name": "EQUIPE113.EXEMPLAIRE",
          "ObjectType": 0
       },
@@ -86,14 +102,23 @@
       {
          "Name": "EQUIPE113.UTILISATEUR",
          "ObjectType": 0
+      },
+      {
+         "Name": "EQUIPE113.VUE_MAT_CORRELATION",
+         "ObjectType": 3
+      },
+      {
+         "Name": "EQUIPE113.VUE_MAT_MOYENNE_COTE",
+         "ObjectType": 3
       }
    ],
-   "UiHint": "EQUIPE113.log660ora12c",
+   "UiHint": "LOG660",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseHierarchyId": false,

@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
 using Oracle.ManagedDataAccess.Client;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Diagnostics;
 using Webflix.Models;
@@ -55,7 +57,52 @@ namespace Webflix
                 DGV_Acteurs.DataSource = personnages;
                 RTB_Resume.Text = film.RESUME ?? "";
                 AddBandesAnnoncesToDGV(film.LIENSBANDEANNONCE ?? "");
+
+
+                //Cote moyenne
+                TB_Cote.Text = db.VUE_MAT_MOYENNE_COTE.Single(v => v.IDFILM == IDFILM).AVG_COTE.ToString();
+
+                //Corrélation
+                DGV_Correlation.DataSource = listCorrelationMovies(db);
             }
+        }
+
+        private List<MoviesCorrelationDGV> listCorrelationMovies(DbWebflix db)
+        {
+            var rentedMovies = (from l in db.LOCATION
+                                join e in db.EXEMPLAIRE on l.FK_IDEXEMPLAIRE equals e.IDEXEMPLAIRE
+                                where l.FK_IDCLIENT == IDCLIENT
+                                select e.FK_IDFILM).ToList();
+
+            var correlation1 = db.VUE_MAT_CORRELATION
+                .Where(f => f.FILMID1 == IDFILM)
+                .Where(f => f.FILMID1 != f.FILMID2 && !rentedMovies.Contains(f.FILMID2.GetValueOrDefault()))
+                .OrderByDescending(f => f.CORRELATION)
+                .Take(3)
+                .Select(v => new MoviesCorrelationDTO(v.FILMID2, v.CORRELATION))
+                .ToList();
+
+            var correlation2 = db.VUE_MAT_CORRELATION
+                .Where(f => f.FILMID2 == IDFILM)
+                .Where(f => f.FILMID2 != f.FILMID1 && !rentedMovies.Contains(f.FILMID2.GetValueOrDefault()))
+                .OrderByDescending(f => f.CORRELATION)
+                .Take(3)
+                .Select(v => new MoviesCorrelationDTO(v.FILMID1, v.CORRELATION))
+                .ToList();
+
+            var correlation = correlation1.Concat(correlation2)
+                .OrderByDescending(f => f.CORRELATION)
+                .Take(3)
+                .ToList();
+
+            var filmsCorrelation = new List<MoviesCorrelationDGV>();
+            foreach (var c in correlation)
+            {
+                var film = db.FILM.Single(f => f.IDFILM == c.FILMID);
+                filmsCorrelation.Add(new MoviesCorrelationDGV(film.IDFILM, film.TITRE, c.CORRELATION));
+            }
+
+            return filmsCorrelation;
         }
 
         private void AddBandesAnnoncesToDGV(string liensString)
@@ -126,6 +173,34 @@ namespace Webflix
             public decimal Id { get; set; }
             public string Acteur { get; set; }
             public string Personnage { get; set; }
+        }
+
+        public class MoviesCorrelationDTO
+        {
+            public MoviesCorrelationDTO(decimal? filmid, decimal? correlation)
+            {
+                FILMID = filmid.GetValueOrDefault();
+                CORRELATION = correlation.GetValueOrDefault();
+            }
+
+            public decimal FILMID { get; set; }
+
+            public decimal CORRELATION { get; set; }
+        }
+
+        public class MoviesCorrelationDGV
+        {
+            public MoviesCorrelationDGV(decimal id, string titre, decimal correlation)
+            {
+                Id = id;
+                Titre = titre;
+                Correlation = correlation;
+            }
+
+            [Browsable(false)]
+            public decimal Id { get; set; }
+            public string Titre { get; set; }
+            public decimal Correlation { get; set; }
         }
     }
 }

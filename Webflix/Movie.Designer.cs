@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Movie));
             PB_AfficheFilm = new PictureBox();
             label6 = new Label();
@@ -54,9 +55,14 @@
             DGV_BandesAnnonces = new DataGridView();
             BandesAnnonces = new DataGridViewLinkColumn();
             BTN_Louer = new Button();
+            label8 = new Label();
+            label9 = new Label();
+            TB_Cote = new TextBox();
+            DGV_Correlation = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)PB_AfficheFilm).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGV_Acteurs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGV_BandesAnnonces).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DGV_Correlation).BeginInit();
             SuspendLayout();
             // 
             // PB_AfficheFilm
@@ -208,14 +214,14 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             DGV_Acteurs.DefaultCellStyle = dataGridViewCellStyle1;
             DGV_Acteurs.GridColor = Color.FromArgb(237, 242, 244);
-            DGV_Acteurs.Location = new Point(218, 114);
+            DGV_Acteurs.Location = new Point(218, 149);
             DGV_Acteurs.MultiSelect = false;
             DGV_Acteurs.Name = "DGV_Acteurs";
             DGV_Acteurs.ReadOnly = true;
             DGV_Acteurs.RowHeadersVisible = false;
             DGV_Acteurs.RowTemplate.Height = 25;
             DGV_Acteurs.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV_Acteurs.Size = new Size(371, 198);
+            DGV_Acteurs.Size = new Size(371, 163);
             DGV_Acteurs.TabIndex = 33;
             DGV_Acteurs.CellDoubleClick += DGV_Acteurs_CellDoubleClick;
             // 
@@ -265,7 +271,7 @@
             RTB_Resume.Location = new Point(84, 318);
             RTB_Resume.Name = "RTB_Resume";
             RTB_Resume.ReadOnly = true;
-            RTB_Resume.Size = new Size(680, 90);
+            RTB_Resume.Size = new Size(877, 155);
             RTB_Resume.TabIndex = 38;
             RTB_Resume.Text = "";
             // 
@@ -324,20 +330,80 @@
             BTN_Louer.FlatStyle = FlatStyle.Flat;
             BTN_Louer.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             BTN_Louer.ForeColor = SystemColors.ControlLightLight;
-            BTN_Louer.Location = new Point(770, 318);
+            BTN_Louer.Location = new Point(770, 500);
             BTN_Louer.Name = "BTN_Louer";
-            BTN_Louer.Size = new Size(191, 90);
+            BTN_Louer.Size = new Size(191, 99);
             BTN_Louer.TabIndex = 41;
             BTN_Louer.Text = "Louer le Film";
             BTN_Louer.UseVisualStyleBackColor = false;
             BTN_Louer.Click += BTN_Louer_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(12, 471);
+            label8.Name = "label8";
+            label8.Size = new Size(406, 21);
+            label8.TabIndex = 42;
+            label8.Text = "Films ayant le plus haut indice de corrélation avec ce film:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(424, 546);
+            label9.Name = "label9";
+            label9.Size = new Size(111, 21);
+            label9.TabIndex = 43;
+            label9.Text = "Cote Moyenne";
+            // 
+            // TB_Cote
+            // 
+            TB_Cote.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TB_Cote.Location = new Point(424, 570);
+            TB_Cote.Name = "TB_Cote";
+            TB_Cote.ReadOnly = true;
+            TB_Cote.Size = new Size(111, 29);
+            TB_Cote.TabIndex = 44;
+            // 
+            // DGV_Correlation
+            // 
+            DGV_Correlation.AllowUserToAddRows = false;
+            DGV_Correlation.AllowUserToDeleteRows = false;
+            DGV_Correlation.AllowUserToResizeRows = false;
+            DGV_Correlation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DGV_Correlation.BackgroundColor = Color.FromArgb(141, 153, 174);
+            DGV_Correlation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(237, 242, 244);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(239, 35, 60);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            DGV_Correlation.DefaultCellStyle = dataGridViewCellStyle3;
+            DGV_Correlation.GridColor = Color.FromArgb(237, 242, 244);
+            DGV_Correlation.Location = new Point(12, 495);
+            DGV_Correlation.MultiSelect = false;
+            DGV_Correlation.Name = "DGV_Correlation";
+            DGV_Correlation.ReadOnly = true;
+            DGV_Correlation.RowHeadersVisible = false;
+            DGV_Correlation.RowTemplate.Height = 25;
+            DGV_Correlation.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DGV_Correlation.Size = new Size(406, 104);
+            DGV_Correlation.TabIndex = 45;
             // 
             // Movie
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(237, 242, 244);
-            ClientSize = new Size(973, 417);
+            ClientSize = new Size(973, 611);
+            Controls.Add(DGV_Correlation);
+            Controls.Add(TB_Cote);
+            Controls.Add(label9);
+            Controls.Add(label8);
             Controls.Add(BTN_Louer);
             Controls.Add(DGV_BandesAnnonces);
             Controls.Add(label3);
@@ -360,13 +426,16 @@
             Controls.Add(TB_Titre);
             Controls.Add(LBL_Search_Title);
             Controls.Add(PB_AfficheFilm);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Movie";
             Text = "Film";
             Load += Movie_Load;
             ((System.ComponentModel.ISupportInitialize)PB_AfficheFilm).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGV_Acteurs).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGV_BandesAnnonces).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DGV_Correlation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -397,5 +466,9 @@
         private DataGridView DGV_BandesAnnonces;
         private DataGridViewLinkColumn BandesAnnonces;
         private Button BTN_Louer;
+        private Label label8;
+        private Label label9;
+        private TextBox TB_Cote;
+        private DataGridView DGV_Correlation;
     }
 }
